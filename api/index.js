@@ -1,8 +1,15 @@
-module.exports = (req, res) => {
-  res.status(200).json({
-    message: "ESDM Backend LIVE ✅ FINAL",
-    status: "READY - NO CRASH",
-    time: new Date().toISOString(),
-    url: req.url
-  });
-};
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get('/', (req,res)=>{
+  res.json({message:"ESDM Backend LIVE ✅", status:"READY", commit:"0a16903-fixed"});
+});
+
+app.get('/api/health', (req,res)=>res.json({ok:true}));
+app.get('/api/gangguan', (req,res)=>res.json({ok:true,data:[STRIPPED]
+
+module.exports = app;
