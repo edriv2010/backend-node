@@ -11,7 +11,20 @@ const SHEET_ID = process.env.SHEET_ID; // JANGAN DITAMPILKAN DI FRONTEND
 const GID = process.env.GID; // JANGAN DITAMPILKAN
 const API_KEY = process.env.GOOGLE_API_KEY;
 
-app.get("/", (req,res)=> res.send("ESDM Backend - SHEETID HIDDEN"));
+
+app.get('/', (req, res) => {
+  res.json({
+    message: "ESDM Backend LIVE ✅",
+    status: "READY",
+    endpoints: ["/api/health", "/api/gangguan"],
+    docs: "Buka /api/gangguan buat liat data",
+    security: "SHEET_ID HIDDEN in Vercel Env"
+  });
+});
+
+
+
+
 
 app.get("/api/gangguan", async (req,res)=>{
   try {
